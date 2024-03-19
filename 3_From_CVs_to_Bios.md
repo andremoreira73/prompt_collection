@@ -19,6 +19,7 @@ What are the 3 main skills you identify from this CV?
 At this point, the user gets a nice short overview of the 3 main strenghts that the CV has. 
 
 // PROMPT START //
+
 Great. Based on what you read and the strenghts you found, can you write a powerful, one-paragraph Bio about this person? Keep the sentences short,
 pay attention to readability and catching the reader's attention to this person's strenghts.
 
