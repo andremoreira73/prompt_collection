@@ -3,7 +3,7 @@
 In this prompt, the user provides a table with common financial data from public sources (e.g P&L and balance sheets - available in the internet for public companies)
 and asks for a summarized health check. The results with ChatGPT4 are very good, even at zero-shot.
 
-// PROMPT 2 START //
+// PROMPT 1 START //
 
 I have a partial financial statement that I want you to analyze. The document is structured as follows:
 The first few rows contain general information such as document status and period covered.
