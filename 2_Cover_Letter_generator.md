@@ -7,6 +7,7 @@ The full procesdure is cut into a few (clearly marked below) prompts to avoid us
 
 
 // PROMPT 1 START //
+
 Please carefully read my CV below, as I will ask you to help me with career advice, write letters, etc. based on this and other information. 
 Do not hallucinate or provide information that is not accurate just to make things sound better. Do not react until I ask you questions, when you finished reading say "OK".
 
