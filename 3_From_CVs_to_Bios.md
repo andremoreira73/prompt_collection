@@ -1,4 +1,4 @@
-## From CVs to Bios
+# From CVs to Bios
 
 The idea of this prompt is to help the user to condense a long (or short...) CV into a one-paragraph bio. That is usually needed for websites, conferences, etc.
 
