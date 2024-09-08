@@ -3,7 +3,7 @@
 To use this prompt most effectively, be sure to have your CV as the job description ready in text form (copy-paste). This prompt
 will help you generate a nice motivation letter. Any places where you need to copy-paste content below is market with < ... >
 
-The full procesdure is cut into a few (clearly marked below) prompts to avoid using too many tokens at once.
+The full procedure is cut into a few (clearly marked below) prompts to avoid using too many tokens at once.
 
 
 // PROMPT 1 START //
