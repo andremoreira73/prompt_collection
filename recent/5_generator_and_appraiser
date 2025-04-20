@@ -1,0 +1,158 @@
+"""
+Note that this set of prompts contain some of the "old" ones, that I kept around for future reference as I tested different prompts during development.
+"""
+
+###########################################################
+class PromptCommentary:
+    class QC_SOClass(BaseModel):
+        suggestions: str
+        quality_control: bool
+        text_output: str
+
+    def __init__(self, topic, decision_context, regional_context, the_text):
+        self.topic = topic
+        self.decision_context = decision_context
+        self.regional_context = regional_context
+        self.the_text = the_text
+
+
+    def generate_dev_prompt_commentary(self) -> str:
+        prompt = f"""
+        You wil get some sources for our Newsletter. Provide a top level summary in HTML: prioritize the most 
+        important sources, be concise, don't be critical but just report facts. For each source you mention, 
+        create a hyperlink to the source, using maximum a couple of words of the sentence for the hyperlink. 
+        Max one  sentence per each reported news, but make the discourse flow, it shouldn't be the equivalent of a 
+        list or a bullet point. Add <br><br> in natural places to make it easier to read. Don't make up connections 
+        between the facts, but if two facts share the same subject, connect the sentences to make the period more flowing.
+
+        Please present just the source summaries in clean HTML that can be directly inserted into a <div> that I will create, 
+        so don't use divs but just plain text, for line breaks explicit <br><br> and for links <a>s. Maintain objectivity and avoid 
+        any critical analysis or commentary.
+        """
+        return(prompt)
+
+
+    def generate_dev_prompt_QC(self) -> str:
+
+        prompt = f"""
+        You will get some sources for our Newsletter and a top level summary in HTML. 
+        Your task is to perform a quality check of the top level summary. The summary should only contain the most 
+        important sources, be concise, not critical but just reporting facts. It should be in clean html that can 
+        be directly inserted into a <div> that I will create, so don't use divs but just plain text, for line breaks 
+        explicit <br><br> and for links <a>s.
+
+        Your response must contain three elements:
+        quality_control: A Boolean (True or False) indicating whether the top level summary meets the requirements.
+        suggestions: Any recommendations for corrections or improvements. If you approve the top level summary, just state "Approved, no suggestions".
+        text_output: If you provided suggestions, rewrite the top level summary here incorporating those suggestions. 
+        If you approved, simply paste the top level.
+        """
+        return(prompt)
+
+
+    def generate_dev_prompt_commentary_old_v1(self) -> str:
+        prompt = f"""
+        You wil get some sources for our Newsletter. Provide a top level summary in HTML: prioritize the most 
+        important sources, be concise, don't be critical but just report facts. For each source you mention, 
+        create a hyperlink to the source, using maximum a couple of words of the sentence for the hyperlink. 
+        Max one  sentence per each reported news, but make the discourse flow, it shouldn't be the equivalent of a 
+        list or a bullet point. Don't make up connections between the facts, but if two facts share the same subject, 
+        connect the sentences to make the period more flowing.
+
+        Please present just the source summaries in clean HTML that can be directly inserted into a <div> that I will 
+        create, so don't use divs but just plain text and <a>s. Maintain objectivity and avoid any critical analysis 
+        or commentary.
+        """
+        return(prompt)
+    
+
+    def generate_dev_prompt_commentary_old_v0(self) -> str:
+        prompt = f"""
+        You have a text that is a collection of sources, each one enclosed by double asterisks (for example: **Title**), 
+        followed by a short summary. All these sources focus on topics related to {self.topic} covering {self.decision_context} around {self.regional_context}.
+
+        **Your role:** You need to produce a **concise** executive summary based **exclusively** on the information 
+        provided in the text.
+
+        **Instructions:**
+        1) The executive summary must be entirely **factual** and **neutral** in tone, sticking strictly to the information available.
+        2) Do not present incomplete or debated items as final facts. If something is under discussion or pending, maintain that nuance.
+        3) Highlight critical words, figures, and concepts using double asterisks, like **this**.
+        4) Include relevant facts and figures from the text if they are explicitly mentioned, avoiding assumptions or calculations not provided in the sources.
+        5) Your executive summary must have **four to five paragraphs** that flow naturally (not one paragraph per source).
+        6) It must **not** include bullet points or a conclusion.
+        7) Do **not** make an opening statement (no starting sentences like "recent developments ... showcase the complexity ...") before describing the actual summary - start straight with the facts.
+        8) Do **not** make big-picture or future outlook statements (e.g., “recent updates reflect significant developments,” 
+        “showcasing a strong commitment to,” “shaping the future,” etc.).
+        9) Keep the tone professional, clear, and strictly based on the content in the text.
+        10) When referring to the content in the text use the word "source" or "sources".
+
+        **Example of a good executive summary:** 
+        <start of example> 
+        A revised set of **operational guidelines** designed to streamline 
+        core activities across multiple sectors was published. The emphasis is on **efficiency metrics** and resource allocation, 
+        ensuring alignment with current quality benchmarks.
+
+        Preliminary data suggests a **28%** uplift in aggregate output, attributed to collaborative funding initiatives 
+        and incentivized pathways for certain regional participants. However, some analysts question whether the 
+        requirements might limit broader scalability.
+
+        Further insights from today's sources underscore the use of **compliance frameworks** that rely on standardized accreditation, 
+        prompting discussions on procedural clarity. Stakeholders remain divided on how this might affect long-term 
+        stability and market balance.
+
+        Lastly, attention is drawn to **cross-border provisions** that call for harmonized documentation. Observers 
+        note that this may require closer coordination among administrative bodies to maintain consistent enforcement.
+        <end of example>
+
+        **Examples of sentence constructions that you must avoid**
+        <start of example>
+        ... significant developments ...
+        ... shaping the landscape...
+        ... showcasing a strong commitment to ...
+        ... the text discusses ...
+        ... the document ...
+
+
+        <end of example>
+        """
+        return(prompt)
+
+
+    def generate_dev_prompt_QC_old(self) -> str:
+
+        prompt = f"""
+        You are given the following materials:
+        1) A block of text (the original sources, enclosed by &&&&&). These discuss topics related to {self.topic} concerning {self.decision_context} in {self.regional_context}.
+        2) A executive summary (enclosed by #####) that was generated based on those sources.
+        
+        **Your role:** Perform a thorough quality check of the executive summary.
+
+        **Your job:** Compare the executive summary with the original sources, ensuring that every statement is accurate, neutral, and truly 
+        reflects only the information provided.
+        
+        **Instructions:**
+        1) Confirm the executive summary is **factual and concise**, maintaining a professional and neutral tone.
+        2) Verify that all statements in the executive summary align with the sources, without adding assumptions or inferred data not explicitly mentioned.
+        3) Check if critical words, figures, and concepts are properly emphasized with double asterisks (e.g., **number**, **term**).
+        4) Ensure the executive summary has exactly **four to five paragraphs** that flow naturally, without bullet points or a conclusion.
+        5) Make sure there is no big-picture or future outlook phrasing that goes beyond what the text states.
+
+        Your response must contain three elements:
+        quality_control: A Boolean (True or False) indicating whether the executive summary fully meets the requirements.
+        suggestions: Any recommendations for corrections or improvements. If you approve the executive summary, just state "Approved, no suggestions".
+        text_output: If you provided suggestions, rewrite the executive summary here incorporating those suggestions. If you approved, simply re-paste the same executive summary here.
+        """
+        return(prompt)
+
+
+    def generate_user_prompt(self) -> str : 
+        return(self.the_text)
+    
+    def generate_user_prompt_QC(self, commentary_for_QC) -> str :
+        prompt = f"Sources:\n{self.the_text}\n Top Level Summary:\n{commentary_for_QC}"
+        return(prompt)
+    
+    def generate_user_prompt_old(self, commentary_for_QC) -> str : 
+        prompt = f"&&&&& The sources:\n{self.the_text}\n &&&&& \n ##### The executive summary:\n{commentary_for_QC} #####"
+        return(prompt)
