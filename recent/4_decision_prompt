@@ -1,59 +1,32 @@
-# The prompt telling the LLM to decide if a text is worth downloading or not
-# we are passing the decision_examples_snippets as a list
-def prompt_decision(topic, topic_alias, decision_context, decision_examples_snippets, FT_status):
-    if FT_status == True:
-        # copy **EXACTLY** the prompt head we used for the fine tuning - do not change without fine tuning again!
-        prompt = f"""
-        You are a helpful assistant that can decide if a given text is worth reading or not.
-        After the mark '///:' is a text snippet about {topic}. 
-        
-        Your job is to carefully read the text snippet after the mark '///:' and understand if it discusses 
-        about anything related to {decision_context} in the area of {topic}.
+"""
+This is a good example on hos to influence "weaker" models like 4o-mini to follow a certain format. 
+This was coded before structured outputs was available, so it is a legacy code.
+"""
 
-        If this is the true, you must respond <True>.
-        If this is not true, you must respond <False>.
-        If you cannot decide, respond <Undecided>.
 
-        You are only allowed to answer <True>, <False> or <Undecided>.
-        You are only allowed to answer <True>, <False> or <Undecided>.
-        You are only allowed to answer <True>, <False> or <Undecided>.
+############################################
+def prompt_decision(topic, decision_context) -> str:
+    # The prompt telling the LLM to decide if a text is worth downloading or not
+    # we are passing the decision_examples_snippets as a list
+    # Note this is purposely **not** using structured outputs
 
-        ///:
-        """
-    else:
-        # prompt engineer for some decision examples 
-        prompt = f"""
-        You are a helpful assistant that can decide if a given text is worth reading or not.
-        Below, after the mark "///:", is a text snippet about {topic}
+    # copy **EXACTLY** the prompt head we used for the fine tuning - do not change without fine tuning again!
+    prompt = f"""
+    You are a helpful assistant that can decide if a given text is worth reading or not.
+    After the mark '///:' is a text snippet about {topic}. 
+    
+    Your job is to carefully read the text snippet after the mark '///:' and understand if it discusses 
+    about anything related to {decision_context} in the area of {topic}.
 
-        Your job is to carefully read the text snippet after the mark "///:" and 
-        understand if it discusses about anything related to {decision_context} in the area of {topic}. 
+    If this is the true, you must respond <True>.
+    If this is not true, you must respond <False>.
+    If you cannot decide, respond <Undecided>.
 
-        """
+    You are only allowed to answer <True>, <False> or <Undecided>.
+    You are only allowed to answer <True>, <False> or <Undecided>.
+    You are only allowed to answer <True>, <False> or <Undecided>.
 
-        # allow integration of several examples in the prompt, if these are available from the topic_sites config json file
-        # if the model is fine-tuned, the list is empty (len == 0) and it will not add this to the prompt.
-        if len(decision_examples_snippets) > 0:
-            prompt = prompt + """
-            Here are examples of text snippets and the respective correct decisions.
+    ///:
+    """
 
-            """
-            for i in decision_examples_snippets:
-                prompt = prompt + '\n' + i
-        
-
-        # finalize the prompt - note that we repeat the words with the job after the examples, reinforce the idea
-        prompt = prompt + f"""
-
-        If this is the true, you must respond <True>.
-        If this is not true, you must respond <False>.
-        If you cannot decide, respond <Undecided>.
-
-        You are only allowed to answer <True>, <False> or <Undecided>.
-        You are only allowed to answer <True>, <False> or <Undecided>.
-        You are only allowed to answer <True>, <False> or <Undecided>.
-        
-        ///:
-
-        """
     return(prompt)
