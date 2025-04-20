@@ -1,3 +1,7 @@
+"""
+Example of a prompt that I let Claude progam for me, as part of a project that I did for a friend (using a self-programmed agent; this was before I decided to use LangGraph)
+"""
+
 #################################################################################
 class JobRelevanceAssistant:
     """AI Assistant that evaluates job listings for interim manager relevance."""
