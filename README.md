@@ -4,7 +4,7 @@ Andre Moreira
 
 This short guide on effective prompt engineering is designed to help you get the best results when interacting with AI models. By mastering the principles described here, you will be able to create prompts that produce clear, relevant, and accurate responses, regardless of the task at hand.
 
-![image](https://github.com/andremoreira73/prompt_collection/issues/1#issue-3267231732)
+![image](images/IBM_picture.png)
 Image from IBM’s course "Generative AI: Prompt Engineering Basics" (Coursera).
 
 ### **1\. Clarity: Keep it Simple and Direct**
