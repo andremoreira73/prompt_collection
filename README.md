@@ -2,11 +2,13 @@
 
 ## About This Collection
 
-This repository contains battle-tested prompts refined through real-world applications across business, technical, and creative domains. It about the technique, not about having a huge collection - each use case is, well, maybe not totally unique, but the point of creating a repo with examples is not for people to copy and paste, but to see some of the tricks that are used to make prompts work.
+This repository contains battle-tested prompts refined through real-world applications across business, technical, and creative domains. It is about the technique, not about having a huge collection. Each use case may not be entirely unique, but the purpose of this repository isn't to provide copy-paste solutions, it is to showcase the tricks and techniques that I use to make prompts effective.
 
-I use LLMs a lot to improve my prompts. As of the time of writing (July 2025), ChatGPT o3, Claude Opus 4 and Gemini 2.5 Pro are excellent prompters.
+I rely heavily on LLMs to refine my own prompts. As of the time of writing (July 2025), ChatGPT o3, Claude Opus 4, and Gemini 2.5 Pro are excellent at helping craft better prompts.
 
-In any case, whether you are automating workflows, enhancing decision-making, or exploring AI capabilities, these prompts provide ready-to-use templates and examples of tricks with proven effectiveness. Simply browse, adapt to your needs, and experience immediate improvements in your AI interactions. Contributions and feedback are always welcome!
+Prompting is fundamentally about experimentation. Lots of it. I have countless examples where I have rewritten a prompt dozens of times before achieving the desired result.
+
+Whether you are automating workflows, enhancing decision-making, or exploring AI capabilities, these prompts provide ready-to-use templates and demonstrate proven techniques. Browse through them, adapt them to your needs, and see immediate improvements in your AI interactions. Contributions and feedback are always welcome!
 
 ## Contents
 
@@ -41,7 +43,7 @@ Start here! A simple and basic guide covering the four essential domains of effe
 
 ## Contributing
 
-Feel free to submit pull requests with your own tested prompts! Please follow the existing format and include:
+Feel free to submit pull requests with your own tested prompts and techniques! Please follow the existing format and include:
 
 - Clear description of the prompt's purpose
 - Usage instructions
