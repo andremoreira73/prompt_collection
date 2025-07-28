@@ -18,26 +18,26 @@ Start here! A simple and basic guide covering the four essential domains of effe
 
 #### Business Strategy & Analysis
 
-- **[VC Co-Pilot](prompts/business-strategy/VC_Co-Pilot.md)** - Comprehensive startup analysis for investment decisions
-- **[Financial Check](prompts/business-strategy/Financial_Check.md)** - Public company financial health assessment
-- **[Business Interviewer](prompts/business-strategy/Interviewer_for_concepts.md)** - Interactive business concept development
+- **[VC Co-Pilot](business-strategy/VC_Co-Pilot.md)** - Comprehensive startup analysis for investment decisions
+- **[Financial Check](business-strategy/Financial_Check.md)** - Public company financial health assessment
+- **[Business Interviewer](business-strategy/Interviewer_for_concepts.md)** - Interactive business concept development
 
 #### Career Development
 
-- **[Cover Letter Generator](prompts/career-development/Cover_Letter_generator.md)** - Tailored cover letters from CV and job descriptions
-- **[CV to Bio Converter](prompts/career-development/From_CVs_to_Bios.md)** - Professional one-paragraph biographies
+- **[Cover Letter Generator](career-development/Cover_Letter_generator.md)** - Tailored cover letters from CV and job descriptions
+- **[CV to Bio Converter](career-development/From_CVs_to_Bios.md)** - Professional one-paragraph biographies
 
 #### Writing & Communication
 
-- **[Textron](prompts/writing/Textron.md)** - Grammar, readability, and translation assistant
+- **[Textron](writing/Textron.md)** - Grammar, readability, and translation assistant
 
 #### Technical Implementations
 
-- **[Job Relevance Evaluator](prompts/technical-prompts/Evaluator_CS.md)** - Automated job listing assessment
-- **[Opportunity Extractor](prompts/technical-prompts/Opportunity_extractor_CS.md)** - Structured job information extraction
-- **[Carbon Calculator](prompts/technical-prompts/ccalc_example.md)** - CO2 emissions calculation system
-- **[Decision Classifier](prompts/technical-prompts/Decision_prompt.md)** - Text relevance classification
-- **[Content Generator & QC](prompts/technical-prompts/Generator_and_appraiser.md)** - Newsletter generation with quality control
+- **[Job Relevance Evaluator](technical-prompts/Evaluator_CS.md)** - Automated job listing assessment
+- **[Opportunity Extractor](technical-prompts/Opportunity_extractor_CS.md)** - Structured job information extraction
+- **[Carbon Calculator](technical-prompts/ccalc_example.md)** - CO2 emissions calculation system
+- **[Decision Classifier](technical-prompts/Decision_prompt.md)** - Text relevance classification
+- **[Content Generator & QC](technical-prompts/Generator_and_appraiser.md)** - Newsletter generation with quality control
 
 ## Contributing
 
