@@ -51,7 +51,10 @@ Feel free to submit pull requests with your own tested prompts and techniques! P
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+- **Code/Prompts**: Licensed under **Apache-2.0**. See `LICENSE`.
+- **Sample data** (files under `data/` or otherwise marked): **CC BY 4.0**. See `data_license/LICENSE`.
+
+If you contribute, you agree that your contributions are licensed under the same terms.
 
 ## Author
 
